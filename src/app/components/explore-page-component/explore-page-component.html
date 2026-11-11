@@ -1,0 +1,20 @@
+<section class="explore-page">
+    <header class="explore-hero">
+        <h1 class="explore-hero__title">Explore Pokémon</h1>
+        <p class="explore-hero__subtitle">
+            Browse the full collection and discover your next favourite.
+        </p>
+    </header>
+
+    <section class="explore-grid">
+        @if (creatureResources[0].isLoading()) {
+            <p style="padding: 2rem; color: var(--color-text-muted);">Loading creatures...</p>
+        } @else {
+            @for (res of creatureResources; track $index) {
+                @if (res.value(); as creature) {
+                    <app-creature-card [id]="'#' + creature.id" [name]="creature.name | titlecase" [types]="creature.types" [spriteUrl]="creature.spriteUrl"></app-creature-card>
+                }
+            }
+        }
+    </section>
+</section>

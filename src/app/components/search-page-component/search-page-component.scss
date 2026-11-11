@@ -1,0 +1,219 @@
+/* --- Page wrapper --- */
+.search-page {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: clamp(1rem, 3vw, 2rem);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1rem, 2.5vw, 2rem);
+}
+
+/* --- Hero --- */
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+
+  padding: clamp(1.5rem, 4vw, 3rem);
+  border-radius: 20px;
+
+  background-color: var(--color-hero-bg);
+}
+
+.hero__content {
+  flex: 1 1 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.hero__title {
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  font-weight: 800;
+  color: var(--color-text-primary);
+}
+
+.hero__subtitle {
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+  max-width: 40ch;
+}
+
+.hero__search {
+  margin-top: 0.5rem;
+}
+
+.hero__art {
+  flex: 1 1 50%;
+  min-height: 260px;
+  position: relative;
+  
+  /* Optional: Keep the radial background if you like it */
+  background: radial-gradient(circle, var(--color-surface-alt) 0%, transparent 70%);
+  border-radius: 20px;
+  overflow: hidden; /* Prevent them from spilling out */
+}
+
+.hero__pokemon {
+  position: absolute;
+  object-fit: contain;
+  transition: transform 200ms ease;
+}
+
+/* Charizard (Left) */
+.hero__pokemon--left {
+  width: 45%; /* Smaller */
+  left: 0;
+  bottom: -5%; /* Slightly lower */
+  z-index: 1;
+}
+
+/* Blastoise (Center) */
+.hero__pokemon--center {
+  width: 42%; /* Smaller */
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  z-index: 3;
+}
+
+/* Venusaur (Right) */
+.hero__pokemon--right {
+  width: 45%; /* Smaller */
+  right: 0;
+  bottom: -5%;
+  z-index: 2;
+}
+
+/* Hover effects remain the same */
+.hero:hover .hero__pokemon--left  { transform: translateY(-10px) rotate(-5deg); }
+.hero:hover .hero__pokemon--center { transform: translateX(-50%) translateY(-15px); }
+.hero:hover .hero__pokemon--right  { transform: translateY(-10px) rotate(5deg); }
+
+/* --- Results --- */
+.results {
+  background-color: var(--color-card);
+  border-radius: 20px;
+  padding: clamp(1rem, 3vw, 2rem);
+}
+
+.results__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.results__heading {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.results__title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-text-primary);
+}
+
+.results__count {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.results__sort {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.results__sort-label {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+}
+
+.results__sort-control {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.results__sort-select {
+  appearance: none;
+  -webkit-appearance: none;
+
+  padding: 0.45rem 2rem 0.45rem 0.9rem;
+
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+
+  background-color: var(--color-card);
+  font-size: 0.9rem;
+  color: var(--color-text-primary);
+
+  cursor: pointer;
+}
+
+.results__sort-select:focus {
+  outline: none;
+  border-color: #B8C4D4;
+}
+
+.results__sort-chevron {
+  position: absolute;
+  right: 0.75rem;
+  pointer-events: none;
+  color: var(--color-text-secondary);
+}
+
+.results__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* --- Responsive --- */
+@media (max-width: 720px) {
+  .hero {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero__art {
+    min-height: 200px;
+  }
+
+  /* Charizard (Left) */
+  .hero__pokemon--left {
+    width: 35%;
+    left: 10%;
+  }
+
+  /* Blastoise (Center) */
+  .hero__pokemon--center {
+    width: 32%;
+  }
+
+  /* Venusaur (Right) */
+  .hero__pokemon--right {
+    width: 35%;
+    right: 10%;
+  }
+
+  .results__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+}
+
+@media (max-width: 425px) {
+  .hero__art {
+    min-height: 120px;
+  }
+}

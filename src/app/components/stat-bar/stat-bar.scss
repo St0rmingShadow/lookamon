@@ -1,0 +1,46 @@
+:host {
+  display: block;
+}
+
+.stat {
+  display: grid;
+  grid-template-columns: 90px 1fr 40px;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.stat__label {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+}
+
+.stat__track {
+  height: 8px;
+
+  border-radius: 999px;
+  background-color: #E5EAF0;
+
+  overflow: hidden;
+}
+
+.stat__fill {
+  height: 100%;
+  border-radius: 999px;
+
+  transition: width 200ms ease;
+}
+
+.stat__value {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  text-align: right;
+}
+
+/* --- Stat fill colors --- */
+.stat__fill--hp              { background-color: #EE5A5A; }
+.stat__fill--attack          { background-color: #F5A340; }
+.stat__fill--defense         { background-color: #F4C542; }
+.stat__fill--special-attack  { background-color: #36A6BE; }
+.stat__fill--special-defense { background-color: #4D91E2; }
+.stat__fill--speed           { background-color: #8E55C7; }

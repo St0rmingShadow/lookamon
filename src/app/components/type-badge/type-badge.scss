@@ -1,0 +1,39 @@
+:host {
+  display: inline-block;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0.2rem 0.7rem;
+  border-radius: 999px;
+
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+
+  color: #FFFFFF;
+  background-color: #A8A8A8;
+}
+
+.badge--fire     { background-color: #F05A5B; }
+.badge--water    { background-color: #4DA3FF; }
+.badge--grass    { background-color: #4CAF50; }
+.badge--electric { background-color: #FFC107; color: #1E3A5F; }
+.badge--ice      { background-color: #7DD3FC; color: #1E3A5F; }
+.badge--rock     { background-color: #8D6E63; }
+.badge--flying   { background-color: #7B9EEB; }
+.badge--poison   { background-color: #9B59B6; }
+.badge--ground   { background-color: #D4A373; }
+.badge--steel    { background-color: #95A5A6; }
+.badge--dark     { background-color: #4B4B6F; }
+.badge--ghost    { background-color: #6A5ACD; }
+.badge--dragon   { background-color: #5969D6; }
+.badge--fairy    { background-color: #E58BB6; }
+.badge--bug      { background-color: #82B440; }
+.badge--fighting { background-color: #C85A3F; }
+.badge--normal   { background-color: #A8A8A8; }
+.badge--psychic  { background-color: #EC6AA5; }

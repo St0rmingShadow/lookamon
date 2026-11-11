@@ -1,0 +1,109 @@
+<section class="creature-page">
+    @if (creatureResource().isLoading()) {
+        <p style="padding: 2rem; text-align: center; color: var(--color-text-muted);">
+            Loading creature data...
+        </p>
+    } @else if (creatureResource().error()) {
+        <p style="padding: 2rem; text-align: center; color: var(--lookamon-red);">
+            Failed to load creature. Please check your connection and try again.
+        </p>
+    } @else if (creatureResource().value(); as creature) {
+        
+        <header class="identity">
+            <div class="identity__thumb">
+                <img [src]="creature.spriteUrl" [alt]="creature.name + ' artwork'" />
+            </div>
+
+            <div class="identity__meta">
+                <span class="identity__id">#{{ creature.id }}</span>
+                <h1 class="identity__name">{{ creature.name | titlecase }}</h1>
+            </div>
+
+            <div class="identity__badges">
+                @for (type of creature.types; track type) {
+                    <app-type-badge [type]="type"></app-type-badge>
+                }
+            </div>
+        </header>
+
+        <section class="overview">
+            <div class="overview__art">
+                <img [src]="creature.spriteUrl" [alt]="creature.name + ' artwork'" />
+            </div>
+
+            <div class="overview__details">
+                <div class="overview__facts">
+                    <!-- Restored Category -->
+                    <div class="facts__group">
+                        <span class="facts__label">Category</span>
+                        <span class="facts__value">{{ creature.category }}</span>
+                    </div>
+
+                    <div class="facts__row">
+                        <div class="facts__group">
+                            <span class="facts__label">Height</span>
+                            <span class="facts__value">{{ creature.height / 10 + ' m'}}</span>
+                        </div>
+                        <div class="facts__group">
+                            <span class="facts__label">Weight</span>
+                            <span class="facts__value">{{ creature.weight / 10 + ' kg'}}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="overview__stats">
+                    <h2 class="stats__title">Base Stats</h2>
+
+                    @for (creatureStat of creature.stats; track $index) {
+                        <app-stat-bar [stat]="creatureStat.name" [label]="creatureStat.name | titlecase" [value]="creatureStat.value"></app-stat-bar>
+                    }
+                </div>
+            </div>
+        </section>
+
+        <!-- Restored Description -->
+        <section class="description">
+            <p class="description__text">
+                {{ creature.description }}
+            </p>
+        </section>
+
+        <section class="extras">
+            <!-- Restored Habitat -->
+            <div class="extras__habitat">
+                <h2 class="extras__title">Habitat</h2>
+                
+                <div class="habitat__image">
+                    <img 
+                        [src]="creatureService.getHabitatImageUrl(creature.habitat)" 
+                        [alt]="creature.habitat + ' habitat'"
+                    />
+                </div>
+                
+                <p class="habitat__text">
+                    This Pokémon is typically found in the <strong style="text-transform: capitalize;">{{ creature.habitat }}</strong> habitat.
+                </p>
+            </div>
+
+            <div class="extras__abilities">
+                <h2 class="extras__title">Abilities</h2>
+
+                @for (ability of creature.abilities; track $index) {
+                    <app-ability [name]="ability.name"></app-ability>
+                }
+            </div>
+        </section>
+
+        <div class="actions">
+            <a class="back-link" routerLink="/search">
+                <span class="back-link__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                </span>
+                <span>Back to search</span>
+            </a>
+        </div>
+    }
+</section>

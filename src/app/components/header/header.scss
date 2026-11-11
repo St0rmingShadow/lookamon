@@ -1,0 +1,115 @@
+:host {
+  display: block;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+
+  padding: 0.75rem clamp(1rem, 4vw, 2rem);
+  background-color: var(--color-card);
+  color: var(--color-text-primary);
+
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.header__logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem; /* Space between the icon and the text */
+
+  font-family: 'Nunito Sans', system-ui, sans-serif;
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+
+  color: var(--color-text-primary);
+  text-decoration: none;
+}
+
+.header__logo:hover {
+  color: var(--lookamon-red);
+}
+
+.header__nav {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.header__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem; /* Space between icon and text */
+
+  flex-shrink: 0;
+  white-space: nowrap;
+
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--color-text-primary);
+
+  transition:
+    background-color 120ms ease,
+    color 120ms ease;
+}
+
+.header__link:hover {
+  background-color: var(--color-highlight);
+  color: var(--lookamon-red);
+}
+
+.header__link--active {
+  color: var(--lookamon-red);
+  background-color: transparent;
+}
+
+.header__theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  width: 40px;
+  height: 40px;
+
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  background-color: transparent;
+
+  font-size: 1.1rem;
+  line-height: 1;
+  color: var(--color-text-primary);
+
+  cursor: pointer;
+  transition:
+    background-color 120ms ease,
+    transform 120ms ease;
+}
+
+.header__theme-toggle:hover {
+  background-color: var(--color-highlight);
+}
+
+.header__theme-toggle:active {
+  transform: scale(0.95);
+}
+
+@media (max-width: 650px) {
+  .header {
+    gap: 1rem;
+  }
+
+  .header__nav {
+    display: none;
+  }
+}

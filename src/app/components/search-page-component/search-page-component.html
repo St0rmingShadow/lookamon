@@ -1,0 +1,67 @@
+<section class="search-page">
+    <section class="hero">
+        <div class="hero__content">
+            <h1 class="hero__title">Find a Pokémon</h1>
+            <p class="hero__subtitle">
+                Search by name or ID to discover detailed information about your favourite Pokémon.
+            </p>
+            <div class="hero__search">
+                <app-search-bar (search)="onSearch($event)"></app-search-bar>
+            </div>
+        </div>
+        <div class="hero__art">
+            <img class="hero__pokemon hero__pokemon--left" 
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png" 
+                alt="Charizard" />
+                
+            <img class="hero__pokemon hero__pokemon--center" 
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/9.png" 
+                alt="Blastoise" />
+                
+            <img class="hero__pokemon hero__pokemon--right" 
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/3.png" 
+                alt="Venusaur" />
+        </div>
+    </section>
+
+    <section class="results">
+        <header class="results__header">
+            <div class="results__heading">
+                <h2 class="results__title">Search Results</h2>
+                <p class="results__count">{{ filteredResults().length }} results for "{{ query() }}"</p>
+            </div>
+
+            <div class="results__sort">
+                <label class="results__sort-label" for="sort-select">Sort by:</label>
+                <div class="results__sort-control">
+                    <select id="sort-select" class="results__sort-select"
+                        (change)="onSortChange($any($event.target).value)">
+                        <option value="id-asc">ID (ascending)</option>
+                        <option value="id-desc">ID (descending)</option>
+                        <option value="name-asc">Name (A–Z)</option>
+                        <option value="name-desc">Name (Z–A)</option>
+                    </select>
+                    <svg class="results__sort-chevron" viewBox="0 0 24 24" width="16" height="16" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        aria-hidden="true">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </div>
+            </div>
+        </header>
+
+        <div class="results__list">
+            @if (allPokemonResource.isLoading()) {
+            <p>Loading...</p>
+            } @else {
+            @for (result of filteredResults(); track result.name) {
+            <app-search-result-row [id]="getIdFromUrl(result.url)"> </app-search-result-row>
+            } @empty {
+            @if (query()) {
+            <p>No creatures found...</p>
+            }
+            }
+            }
+        </div>
+    </section>
+</section>

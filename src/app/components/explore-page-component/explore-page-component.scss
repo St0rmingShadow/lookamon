@@ -1,0 +1,55 @@
+/* --- Page wrapper --- */
+.explore-page {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: clamp(1rem, 3vw, 2rem);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1rem, 2.5vw, 2rem);
+}
+
+/* --- Hero --- */
+.explore-hero {
+  padding: clamp(1.5rem, 4vw, 3rem);
+  border-radius: 20px;
+  background-color: var(--color-hero-bg);
+}
+
+.explore-hero__title {
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  font-weight: 800;
+  color: var(--color-text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.explore-hero__subtitle {
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+  max-width: 60ch;
+}
+
+/* --- Grid --- */
+.explore-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+@media (max-width: 1024px) {
+  .explore-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .explore-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .explore-grid {
+    grid-template-columns: 1fr;
+  }
+}

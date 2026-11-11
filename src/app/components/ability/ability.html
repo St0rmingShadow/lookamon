@@ -1,0 +1,14 @@
+<div class="ability">
+    <!-- Change this span to use the typeColor signal -->
+    <span class="ability__marker" [ngClass]="'ability__marker--' + typeColor()">
+        <!-- You can keep the star, or remove it since the background will have color -->
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" stroke="none">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+        </svg>
+    </span>
+
+    <div class="ability__text">
+        <h3 class="ability__name">{{ name() | titlecase }}</h3>
+        <p class="ability__description">{{ description() }}</p>
+    </div>
+</div>

@@ -1,0 +1,60 @@
+:host {
+  display: block;
+}
+
+.ability {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.ability__marker {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  
+  width: 32px;
+  height: 32px;
+
+  border-radius: 50%;
+  background-color: var(--color-surface-alt);
+  color: #FFFFFF;
+  border: 2px solid transparent;
+}
+
+.ability__marker--fire     { background-color: #F05A5B; }
+.ability__marker--water    { background-color: #4DA3FF; }
+.ability__marker--grass    { background-color: #4CAF50; }
+.ability__marker--electric { background-color: #FFC107; color: #1E3A5F; /* Dark star for contrast */ }
+.ability__marker--ice      { background-color: #7DD3FC; color: #1E3A5F; }
+.ability__marker--rock     { background-color: #8D6E63; }
+.ability__marker--flying   { background-color: #7B9EEB; }
+.ability__marker--poison   { background-color: #9B59B6; }
+.ability__marker--ground   { background-color: #D4A373; }
+.ability__marker--steel    { background-color: #95A5A6; }
+.ability__marker--dark     { background-color: #4B4B6F; }
+.ability__marker--ghost    { background-color: #6A5ACD; }
+.ability__marker--dragon   { background-color: #5969D6; }
+.ability__marker--fairy    { background-color: #E58BB6; }
+.ability__marker--bug      { background-color: #82B440; }
+.ability__marker--fighting { background-color: #C85A3F; }
+.ability__marker--normal   { background-color: #A8A8A8; }
+.ability__marker--psychic  { background-color: #EC6AA5; }
+
+.ability__text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.ability__name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.ability__description {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+}

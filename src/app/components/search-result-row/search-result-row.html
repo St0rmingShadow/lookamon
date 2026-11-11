@@ -1,0 +1,22 @@
+@if (creatureResource.value(); as creature) {
+  <a class="row" [routerLink]="['/creature', id()]">
+      <div class="row__thumb">
+          <img [src]="creature.spriteUrl" [alt]="creature.name" />
+      </div>
+
+      <div class="row__info">
+          <span class="row__id">#{{ creature.id | number:'3.0-0' }}</span>
+          <h3 class="row__name">{{ creature.name | titlecase }}</h3>
+      </div>
+
+      <div class="row__badges">
+          @for (type of creature.types; track type) {
+              <app-type-badge [type]="type"></app-type-badge>
+          }
+      </div>
+
+      <span class="row__chevron" aria-hidden="true">
+          <!-- SVG -->
+      </span>
+  </a>
+}
