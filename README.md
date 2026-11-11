@@ -1,59 +1,78 @@
 # Lookamon
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.1.7.
+A responsive, modern Pokémon database built with Angular 22. Lookamon allows users to search for Pokémon by name or ID, explore a curated list of popular creatures, and view detailed stats, abilities, and habitat information.
 
-## Development server
+**Live Demo:** [https://lookamon.vercel.app/](https://lookamon.vercel.app/)
 
-To start a local development server, run:
+## Features
 
-```bash
-ng serve
-```
+-   **Live Search:** Filter through over 1000 Pokémon by name or Pokédex ID.
+-   **Sorting:** Sort search results by ID or name (ascending or descending).
+-   **Detailed Profiles:** View official artwork, base stats, abilities (with descriptions), height, weight, and habitat data.
+-   **Explore Page:** Browse a curated grid of 20 popular Pokémon, clickable for quick access to their details.
+-   **Dark Mode:** Fully themed light and dark modes that persist across sessions using `localStorage`.
+-   **Responsive Design:** Optimized for mobile, tablet, and desktop, featuring a custom bottom navigation tab bar on mobile screens.
+-   **Modern UI:** Built with CSS Grid, Flexbox, CSS Variables, and a custom inline SVG logo.
+-   **Data Source:** Powered by [PokéAPI](https://pokeapi.co/).
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Tech Stack
 
-## Code scaffolding
+-   **Framework:** Angular 22 (Standalone components, Signals, `httpResource`)
+-   **Styling:** SCSS (BEM naming convention), CSS Variables
+-   **API:** PokéAPI
+-   **Deployment:** Vercel
+-   **Fonts:** Nunito Sans ` Inter (via Google Fonts)
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Getting Started
 
-```bash
-ng generate component component-name
-```
+To run this project locally, follow these steps:
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### Prerequisites
 
-```bash
-ng generate --help
-```
+You need to have [Node.js](https://nodejs.org/) installed on your machine.
 
-## Building
+### Installation
 
-To build the project run:
+1.  Clone the repository:
+    ```bash
+    git clone https://github.com/St0rmingShadow/lookamon.git
+    ```
+
+2.  Navigate into the project directory:
+    ```bash
+    cd lookamon
+    ```
+
+3.  Install the dependencies:
+    ```bash
+    npm install
+    ```
+
+4.  Start the development server:
+    ```bash
+    ng serve
+    ```
+
+5.  Open your browser and navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+
+## Build
+
+To build the project for production, run:
 
 ```bash
 ng build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+## Project Architecture
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+The project follows a standard Angular architecture, separating core logic from UI components:
 
-```bash
-ng test
-```
+-   `src/app/core/`: Contains the `CreatureService`, `ThemeService`, and TypeScript models/interfaces.
+-   `src/app/components/`: Contains all standalone UI components (Pages, Layouts, and Shared components like Badges, Cards, and Stat Bars).
+-   `src/styles.scss`: Global styles, CSS resets, and the light/dark mode CSS variable palettes.
 
-## Running end-to-end tests
+## License
 
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+This is a fan-made project. Pokémon and all respective names and images are trademarks of Nintendo, Game Freak, and The Pokémon Company. This project is not affiliated with or endorsed by them. It is intended for educational and portfolio purposes only.
