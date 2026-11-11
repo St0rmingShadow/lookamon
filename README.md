@@ -1,78 +1,79 @@
-# Lookamon
+# Lookamon 🎮⚡
 
-A responsive, modern Pokémon database built with Angular 22. Lookamon allows users to search for Pokémon by name or ID, explore a curated list of popular creatures, and view detailed stats, abilities, and habitat information.
+A responsive **Pokémon database** built with **Angular 22**, pulling live data from [PokéAPI](https://pokeapi.co/). Browse, search, and sort Pokémon with a clean UI and a built-in dark mode.
 
-**Live Demo:** [https://lookamon.vercel.app/](https://lookamon.vercel.app/)
+---
 
-## Features
+## ✨ Features
 
--   **Live Search:** Filter through over 1000 Pokémon by name or Pokédex ID.
--   **Sorting:** Sort search results by ID or name (ascending or descending).
--   **Detailed Profiles:** View official artwork, base stats, abilities (with descriptions), height, weight, and habitat data.
--   **Explore Page:** Browse a curated grid of 20 popular Pokémon, clickable for quick access to their details.
--   **Dark Mode:** Fully themed light and dark modes that persist across sessions using `localStorage`.
--   **Responsive Design:** Optimized for mobile, tablet, and desktop, featuring a custom bottom navigation tab bar on mobile screens.
--   **Modern UI:** Built with CSS Grid, Flexbox, CSS Variables, and a custom inline SVG logo.
--   **Data Source:** Powered by [PokéAPI](https://pokeapi.co/).
+- 🔍 **Search** Pokémon by name
+- ↕️ **Sort** by name, ID, or type
+- 🌙 **Dark mode** theme toggle
+- 📱 **Fully responsive** layout (mobile → desktop)
+- ⚡ **Live data** from PokéAPI
+- 🎨 Clean, component-driven UI
 
-## Tech Stack
+---
 
--   **Framework:** Angular 22 (Standalone components, Signals, `httpResource`)
--   **Styling:** SCSS (BEM naming convention), CSS Variables
--   **API:** PokéAPI
--   **Deployment:** Vercel
--   **Fonts:** Nunito Sans ` Inter (via Google Fonts)
+## 🛠 Tech Stack
 
-## Getting Started
+| Layer | Tech |
+|---|---|
+| Framework | Angular 22 |
+| Language | TypeScript |
+| Data source | [PokéAPI](https://pokeapi.co/) |
+| State / Async | RxJS |
+| Styling | SCSS |
 
-To run this project locally, follow these steps:
+---
+
+## 🚀 Getting Started
 
 ### Prerequisites
 
-You need to have [Node.js](https://nodejs.org/) installed on your machine.
+- Node.js (LTS)
+- Angular CLI: `npm install -g @angular/cli`
 
 ### Installation
 
-1.  Clone the repository:
-    ```bash
-    git clone https://github.com/St0rmingShadow/lookamon.git
-    ```
+```bash
+# Clone the repo
+git clone https://github.com/St0rmingShadow/lookamon.git
+cd lookamon
 
-2.  Navigate into the project directory:
-    ```bash
-    cd lookamon
-    ```
+# Install dependencies
+npm install
 
-3.  Install the dependencies:
-    ```bash
-    npm install
-    ```
+# Start the dev server
+ng serve
+```
 
-4.  Start the development server:
-    ```bash
-    ng serve
-    ```
+Open [http://localhost:4200](http://localhost:4200) in your browser.
 
-5.  Open your browser and navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Build
-
-To build the project for production, run:
+### Build
 
 ```bash
 ng build
 ```
 
-The build artifacts will be stored in the `dist/` directory.
+Build artifacts go to `dist/`.
 
-## Project Architecture
+## 🗺 Roadmap
 
-The project follows a standard Angular architecture, separating core logic from UI components:
+- [ ] Pokémon detail page / modal
+- [ ] Filter by type
+- [ ] Favorites (localStorage)
+- [ ] Live demo deployment
 
--   `src/app/core/`: Contains the `CreatureService`, `ThemeService`, and TypeScript models/interfaces.
--   `src/app/components/`: Contains all standalone UI components (Pages, Layouts, and Shared components like Badges, Cards, and Stat Bars).
--   `src/styles.scss`: Global styles, CSS resets, and the light/dark mode CSS variable palettes.
+---
 
-## License
+## 📄 License
 
-This is a fan-made project. Pokémon and all respective names and images are trademarks of Nintendo, Game Freak, and The Pokémon Company. This project is not affiliated with or endorsed by them. It is intended for educational and portfolio purposes only.
+This project is open source. See the repository for details.
+
+---
+
+## 🙏 Acknowledgements
+
+- [PokéAPI](https://pokeapi.co/) for the free public data
+- Pokémon is © Nintendo / Game Freak / Creatures Inc. This is a fan project for learning purposes.
