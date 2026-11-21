@@ -51,7 +51,13 @@ export class SearchPageComponent {
       if (!el) return;
 
       this.lastScrolledQuery = currentQuery;
-      setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+
+      const prefersReducedMotion = window.matchMedia(
+        '(prefers-reduced-motion: reduce)',
+      ).matches;
+      const behavior: ScrollBehavior = prefersReducedMotion ? 'auto' : 'smooth';
+
+      setTimeout(() => el.scrollIntoView({ behavior, block: 'start' }), 50);
     });
   }
 

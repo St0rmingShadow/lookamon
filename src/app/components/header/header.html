@@ -1,16 +1,10 @@
 <header class="header">
-    <a class="header__logo" routerLink="/search">
-        <!-- The Logo Mark -->
-        <svg class="header__logo-mark" viewBox="0 0 100 100" width="36" height="36">
-            <!-- Top Half (Red) -->
+    <a class="header__logo" routerLink="/search" aria-label="Lookamon — home">
+        <svg class="header__logo-mark" viewBox="0 0 100 100" width="36" height="36" aria-hidden="true">
             <path d="M 2 50 A 48 48 0 0 1 98 50 L 70 50 A 20 20 0 0 0 30 50 Z" fill="var(--lookamon-red)"></path>
-            <!-- Bottom Half (Blue) -->
             <path d="M 2 50 A 48 48 0 0 0 98 50 L 70 50 A 20 20 0 0 1 30 50 Z" fill="var(--color-text-primary)"></path>
-            <!-- Center Circle (Yellow) -->
             <circle cx="50" cy="50" r="20" fill="var(--lookamon-yellow)"></circle>
         </svg>
-
-        <!-- The Wordmark -->
         <span>Lookamon</span>
     </a>
 
@@ -42,9 +36,11 @@
         </a>
     </nav>
 
-    <button class="header__theme-toggle" type="button" aria-label="Toggle theme" (click)="themeService.toggleTheme()">
-
-        {{ themeService.isDarkMode() ? '☀️' : '🌙' }}
-
+    <button
+        class="header__theme-toggle"
+        type="button"
+        [attr.aria-label]="themeService.isDarkMode() ? 'Switch to light mode' : 'Switch to dark mode'"
+        (click)="themeService.toggleTheme()">
+        <span aria-hidden="true">{{ themeService.isDarkMode() ? '☀️' : '🌙' }}</span>
     </button>
 </header>

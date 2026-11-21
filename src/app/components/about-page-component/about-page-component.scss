@@ -68,3 +68,60 @@
 .about-actions {
   display: flex;
 }
+
+.about__credits {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-border, rgba(0, 0, 0, 0.1));
+}
+
+.about__credits-title {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.about__credit-block {
+    margin-bottom: 1.5rem;
+
+    & + & {
+        margin-top: 1.5rem;
+    }
+}
+
+.about__credit-name {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+
+.about__credit-text,
+.about__credit-notice {
+    font-size: 0.875rem;
+    line-height: 1.6;
+    opacity: 0.85;
+}
+
+.about__credit-notice {
+    margin-top: 0.5rem;
+    font-size: 0.75rem;
+    opacity: 0.7;
+}
+
+.about__credit-link {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+
+    &:focus-visible {
+        outline: 2px solid var(--color-focus-ring, currentColor);
+        outline-offset: 2px;
+        border-radius: 2px;
+    }
+}
+
+.about__credit-disclaimer {
+    margin-top: 2rem;
+    font-size: 0.75rem;
+    opacity: 0.7;
+    font-style: italic;
+}

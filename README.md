@@ -75,5 +75,10 @@ This project is open source. See the repository for details.
 
 ## 🙏 Acknowledgements
 
-- [PokéAPI](https://pokeapi.co/) for the free public data
+- **Pokémon data, sprites and official artwork** — [PokéAPI](https://pokeapi.co/),
+  licensed under the BSD 3-Clause Licence.
+  Copyright © 2013–2023 Paul Hallett and PokéAPI contributors.
+  Pokémon and Pokémon character names are trademarks of Nintendo. All rights reserved.
+  Full licence text: [`THIRD_PARTY_NOTICES.md`](./THIRD_PARTY_NOTICES.md).
+- **Habitat photography** — [Unsplash](https://unsplash.com/license).
 - Pokémon is © Nintendo / Game Freak / Creatures Inc. This is a fan project for learning purposes.
