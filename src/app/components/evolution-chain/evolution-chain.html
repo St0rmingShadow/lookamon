@@ -1,0 +1,34 @@
+@if (evolutionResource.isLoading()) {
+  <p class="evo-loading">Loading evolutions...</p>
+} @else if (evolutionResource.error()) {
+  <p class="evo-error">Could not load evolution data.</p>
+} @else if (stages().length > 1) {
+  <div class="evolution-chain">
+    @for (stage of stages(); track $index) {
+      
+      <div class="evolution-stage">
+        @for (pokemon of stage; track pokemon.id) {
+          <a [routerLink]="['/creature', pokemon.id]" class="evolution-node">
+            <img 
+              [src]="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/' + pokemon.id + '.png'" 
+              alt="" 
+            />
+            <span class="evolution-name">{{ pokemon.name | titlecase }}</span>
+          </a>
+        }
+      </div>
+
+      <!-- Don't show the arrow after the final stage -->
+      @if (!$last) {
+        <div class="evolution-arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </div>
+      }
+    }
+  </div>
+} @else {
+  <p class="no-evolution">This Pokémon does not evolve.</p>
+}

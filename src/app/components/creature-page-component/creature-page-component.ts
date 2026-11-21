@@ -7,6 +7,10 @@ import { httpResource } from '@angular/common/http';
 import { CreatureService } from '../../core/services/creature';
 import { Creature, PokemonApiResponse, PokemonSpeciesResponse } from '../../core/models/creature.model';
 import { TitleCasePipe } from '@angular/common';
+import { EvolutionChain } from '../evolution-chain/evolution-chain';
+
+import { toSignal } from '@angular/core/rxjs-interop';
+import { map } from 'rxjs/operators';
 
 export interface CustomResource<T> {
   isLoading: () => boolean;
@@ -15,7 +19,7 @@ export interface CustomResource<T> {
 }
 
 @Component({
-  imports: [TypeBadge, StatBar, Ability, RouterLink, TitleCasePipe],
+  imports: [TypeBadge, StatBar, Ability, RouterLink, TitleCasePipe, EvolutionChain],
   selector: 'app-creature-page-component',
   styleUrl: './creature-page-component.scss',
   templateUrl: './creature-page-component.html',
@@ -24,14 +28,20 @@ export class CreaturePageComponent {
   private route = inject(ActivatedRoute);
   protected creatureService = inject(CreatureService);
 
-  protected readonly id = Number(this.route.snapshot.paramMap.get('id'));
+  // 1. Convert the route parameter to a Signal!
+  protected readonly id = toSignal(
+    this.route.paramMap.pipe(
+      map((params) => Number(params.get('id')))
+    )
+  );
 
+  // 2. Read the id() as a signal in the resource URLs
   private readonly pokemonResource = httpResource<PokemonApiResponse>(
-    () => this.creatureService.getCreatureUrl(this.id)
+    () => this.creatureService.getCreatureUrl(this.id()!)
   );
 
   private readonly speciesResource = httpResource<PokemonSpeciesResponse>(
-    () => this.creatureService.getSpeciesUrl(this.id)
+    () => this.creatureService.getSpeciesUrl(this.id()!)
   );
 
   // The type is Signal<CustomResource<Creature>>

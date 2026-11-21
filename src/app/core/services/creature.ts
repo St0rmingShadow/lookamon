@@ -45,10 +45,12 @@ export class CreatureService {
       stats: raw.stats.map((s) => ({ name: s.stat.name, value: s.base_stat })),
       abilities: raw.abilities.map((a) => ({ name: a.ability.name, description: '' })),
       
-      // Add the new fields
       category: category,
       description: flavorText,
       habitat: species?.habitat?.name || 'Unknown',
+      
+      // Add the new mapping here:
+      evolutionChainUrl: species?.evolution_chain?.url || '',
     };
   }
 

@@ -20,6 +20,7 @@ export interface Creature {
   category: string;
   description: string;
   habitat: string;
+  evolutionChainUrl?: string;
 }
 
 export interface PokemonApiResponse {
@@ -70,6 +71,7 @@ export interface PokemonSpeciesResponse {
   habitat: {
     name: string;
   } | null;
+  evolution_chain: { url: string };
 }
 
 export interface AbilityApiResponse {
@@ -79,4 +81,14 @@ export interface AbilityApiResponse {
     short_effect: string;
     language: { name: string };
   }[];
+}
+
+export interface EvolutionChainResponse {
+  id: number;
+  chain: ChainLink;
+}
+
+export interface ChainLink {
+  species: { name: string; url: string };
+  evolves_to: ChainLink[];
 }

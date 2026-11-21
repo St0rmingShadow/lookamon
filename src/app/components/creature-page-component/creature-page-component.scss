@@ -163,6 +163,13 @@
   color: var(--color-text-primary);
 }
 
+.evolution {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: var(--color-surface-alt);
+  border-radius: 1rem;
+}
+
 .habitat__image {
   /* Ensure the container has a fixed aspect ratio or height */
   height: 200px;

@@ -33,7 +33,6 @@
 
             <div class="overview__details">
                 <div class="overview__facts">
-                    <!-- Restored Category -->
                     <div class="facts__group">
                         <span class="facts__label">Category</span>
                         <span class="facts__value">{{ creature.category }}</span>
@@ -61,15 +60,20 @@
             </div>
         </section>
 
-        <!-- Restored Description -->
         <section class="description">
             <p class="description__text">
                 {{ creature.description }}
             </p>
         </section>
 
+        <!-- NEW EVOLUTION SECTION -->
+        <section class="evolution">
+            <h2 class="extras__title">Evolution Chain</h2>
+            <app-evolution-chain [url]="creature.evolutionChainUrl || ''"></app-evolution-chain>
+        </section>
+        <!-- END NEW EVOLUTION SECTION -->
+
         <section class="extras">
-            <!-- Restored Habitat -->
             <div class="extras__habitat">
                 <h2 class="extras__title">Habitat</h2>
                 
