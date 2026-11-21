@@ -10,16 +10,16 @@
             </div>
         </div>
         <div class="hero__art">
-            <img class="hero__pokemon hero__pokemon--left" 
-                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png" 
+            <img class="hero__pokemon hero__pokemon--left"
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png"
                 alt="Charizard" />
-                
-            <img class="hero__pokemon hero__pokemon--center" 
-                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/9.png" 
+
+            <img class="hero__pokemon hero__pokemon--center"
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/9.png"
                 alt="Blastoise" />
-                
-            <img class="hero__pokemon hero__pokemon--right" 
-                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/3.png" 
+
+            <img class="hero__pokemon hero__pokemon--right"
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/3.png"
                 alt="Venusaur" />
         </div>
     </section>
@@ -28,7 +28,9 @@
         <header class="results__header">
             <div class="results__heading">
                 <h2 class="results__title">Search Results</h2>
-                <p class="results__count">{{ filteredResults().length }} results for "{{ query() }}"</p>
+                @if (debouncedQuery()) {
+                    <p class="results__count">{{ filteredResults().length }} results for "{{ debouncedQuery() }}"</p>
+                }
             </div>
 
             <div class="results__sort">
@@ -50,15 +52,15 @@
             </div>
         </header>
 
-        <div class="results__list">
-            @if (allPokemonResource.isLoading()) {
-            <p>Loading...</p>
+        <div class="results__list" #resultsContainer>
+            @if (showLoader()) {
+            <p class="results__loader">Loading…</p>
             } @else {
             @for (result of filteredResults(); track result.name) {
-            <app-search-result-row [id]="getIdFromUrl(result.url)"> </app-search-result-row>
+            <app-search-result-row [id]="getIdFromUrl(result.url)"></app-search-result-row>
             } @empty {
             @if (query()) {
-            <p>No creatures found...</p>
+            <p>No creatures found…</p>
             }
             }
             }
