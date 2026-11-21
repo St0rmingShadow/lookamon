@@ -153,3 +153,42 @@ html[data-theme="dark"] {
   align-items: center;
   justify-content: center;
 }
+
+/* ==========================================================================
+   Page Transitions (View Transitions API)
+   ========================================================================== */
+
+/* Set the duration and easing for the page swap */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.25s; /* Slightly faster feels better for pure fades */
+  animation-timing-function: ease-in-out;
+}
+
+/* Fade out the old page */
+::view-transition-old(root) {
+  animation-name: fade-out;
+}
+
+/* Fade in the new page */
+::view-transition-new(root) {
+  animation-name: fade-in;
+}
+
+@keyframes fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Accessibility: Disable animations for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none !important;
+  }
+}
